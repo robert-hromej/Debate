@@ -14,7 +14,7 @@
     <% end %>
 
     <div class="log_in_out">
-      <%= link_to t(:home), root_url %>
+      <%= link_to "Home", root_url %>
     </div>
   </div>
   <% if controller.authorized? %>
@@ -25,7 +25,7 @@
         </div>
         <div id="greeting">
           <h3>
-            #<%= t(:welocme) %>
+            Welcome
             <%= link_to controller.current_user.screen_name, controller.current_user.profile_url, :class => "welcome_link" %>
           </h3>
         </div>
