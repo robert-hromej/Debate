@@ -9,6 +9,7 @@ group :development, :test do
   gem "rspec", "~> 2.6.0"
   gem "rspec-rails", "~> 2.4"
   gem "factory_girl_rails", "~> 1.1"
+  gem "faker"
 end
 
 group :test do
