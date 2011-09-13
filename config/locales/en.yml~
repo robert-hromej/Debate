@@ -38,7 +38,7 @@ debates:
     yes_count: 1
     yes_users_id:
     - 3
-    no_count: 2
+    no_count: 1
     no_users_id:
     - 1 
     neutral_count: 1
@@ -71,7 +71,7 @@ debates:
     yes_count: 1
     yes_users_id:
     - 3
-    no_count: 2
+    no_count: 1
     no_users_id:
     - 1 
     neutral_count: 1
@@ -104,7 +104,7 @@ debates:
     yes_count: 1
     yes_users_id:
     - 3
-    no_count: 2
+    no_count: 1
     no_users_id:
     - 1 
     neutral_count: 1
