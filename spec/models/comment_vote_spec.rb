@@ -19,4 +19,5 @@ describe CommentVote do
   end
 
 
+
 end
