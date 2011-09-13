@@ -8,9 +8,9 @@ class DebateQuestion < ActiveRecord::Base
   has_many :debate_no_votes, :class_name => "DebateVote", :conditions => {:current_vote => -1}
   has_many :debate_neutral_votes, :class_name => "DebateVote", :conditions => {:current_vote => 0}
   
-  attr_accessible :body, :yes_count, :no_count, :neutral_count
+  attr_accessible :body, :yes_count, :no_count, :neutral_count, :user_id
 
-  validates :body, :presence => true, :length => {:minimum => 3, :maximum => 256}
+  validates :body, :presence => true, :length => {:within => 3..256}
   validates :user_id, :presence => true
   
   def recounting
