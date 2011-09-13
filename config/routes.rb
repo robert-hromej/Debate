@@ -12,7 +12,11 @@ Debate::Application.routes.draw do
       resource :comment_vote
     end
 
-    resources :debate_vote
+    resources :debate_vote do
+      member do
+        post :vote
+      end
+    end
   end
 
   root :to => "home#index"
