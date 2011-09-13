@@ -4,15 +4,11 @@
 <h2>Top debates</h2>
 
 <div id="top_debates">
-    <% @top_debates.each do |deb| %>
-        <%= render :partial => 'debate_question/debate_question' , :locals => {:debate_question => deb} %>
-    <% end %>
+   <%= render :partial => 'debate_question/debate_question', :collection =>  @top_debates  %>
 </div>
 
 <h2>Recent debates</h2>
 
 <div id="recent_debates">
-    <% @recent_debates.each do |deb| %>
-        <%= render :partial => 'debate_question/debate_question' , :locals => {:debate_question => deb} %>
-    <% end %>
+    <%= render :partial => 'debate_question/debate_question', :collection =>  @recent_debates  %>
 </div>
