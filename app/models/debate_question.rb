@@ -6,6 +6,6 @@ class DebateQuestion < ActiveRecord::Base
 
   attr_accessible :body, :yes_count, :no_count, :neutral_count
 
-  validates :body, :presence => true, :length => 256
+  validates :body, :presence => true, :length => {:minimum => 3, :maximum => 256}
   validates :user_id, :presence => true
 end
