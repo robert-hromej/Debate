@@ -2,6 +2,11 @@ Debate::Application.routes.draw do
 
   get "home/index"
 
+  get 'login', :to => 'twitter#login', :as => "login"
+  get 'logout', :to => 'twitter#logout', :as => "logout"
+
+  get "twitter/after_login"
+
   resources :debate_question, :shallow => true do
     resources :comment do
       resource :comment_vote

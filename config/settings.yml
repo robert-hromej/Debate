@@ -1,0 +1,14 @@
+development:
+  :twitter:
+    :consumer_token: Z6xprz3wtnLpgqGRZUZg4Q
+    :consumer_secret: DhJtAGauikL527cOfiSSCplDOth6fNDcDLHngaaSCEo
+
+test:
+  :twitter:
+    :consumer_token: Z6xprz3wtnLpgqGRZUZg4Q
+    :consumer_secret: DhJtAGauikL527cOfiSSCplDOth6fNDcDLHngaaSCEo
+
+staging:
+  :twitter:
+    :consumer_token: Z6xprz3wtnLpgqGRZUZg4Q
+    :consumer_secret: DhJtAGauikL527cOfiSSCplDOth6fNDcDLHngaaSCEo
