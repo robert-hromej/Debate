@@ -12,7 +12,10 @@ class DebateQuestion < ActiveRecord::Base
 
   validates :body, :presence => true, :length => {:within => 3..256}
   validates :user_id, :presence => true
-  
+
+  scope :top_debates, select("(yes_count + no_count  + neutral_count) as votes, debate_questions.*").order("votes DESC").limit(5)
+  scope :recent_debates, order("created_at DESC").limit(5)
+
   def recounting
     self.update_attributes(:yes_count => self.debate_yes_votes.count,
                            :no_count => self.debate_no_votes.count,
