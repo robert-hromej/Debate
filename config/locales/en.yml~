@@ -1,0 +1,134 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+users:
+-  user:
+    name: ivan:
+    id: 1
+-  user:
+    name: dart vader
+    id: 2
+-  user:
+    name: superman
+    id: 3
+-  user:
+    name: son of ivan:
+    id: 4
+-  user:
+    name: son of dart vader
+    id: 5
+-  user:
+    name: son of superman
+    id: 6
+-  user:
+    name: son of son of ivan:
+    id: 7
+-  user:
+    name: son of son of dart vader
+    id: 8
+-  user:
+    name: son of son of superman
+    id: 9
+debates:
+-  debate:
+    users_id: 1
+    body: Starwars is the best film ever?
+    yes_count: 1
+    yes_users_id:
+    - 3
+    no_count: 1
+    no_users_id:
+    - 1 
+    neutral_count: 1
+    neutral_users_id:
+    - 9
+    comments:
+    -  comment:
+        body: Yes. Definitely! Dart Wader is very scarry!
+        users_id: 3 
+        vote: 1
+        count: 0
+    -  comment:
+        body: Sorry. This is for nerds.
+        users_id: 1 
+        vote: -1
+        count: 0
+    -  comment:
+        body: It's impossible to hear sound of engines in Space.
+        users_id: 1 
+        vote: -1
+        count: 0
+    -  comment:
+        body: Is it some new film?
+        users_id: 9 
+        vote: 0
+        count: 0
+-  debate:
+    users_id: 2
+    body: Do you miss for Soviet Union?
+    yes_count: 1
+    yes_users_id:
+    - 3
+    no_count: 1
+    no_users_id:
+    - 1 
+    neutral_count: 1
+    neutral_users_id:
+    - 9
+    comments:
+    -  comment:
+        body: Yes. Definitely! I had 200 roubles salary!
+        users_id: 3 
+        vote: 1
+        count: 0
+    -  comment:
+        body: Sorry. This is for nerds.
+        users_id: 1 
+        vote: -1
+        count: 0
+    -  comment:
+        body: It's impossible to hear sound of engines in Space.
+        users_id: 1 
+        vote: -1
+        count: 0
+    -  comment:
+        body: What is Soviet Union?
+        users_id: 9 
+        vote: 0
+        count: 0
+-  debate:
+    users_id: 3
+    body: Does Java really better then Ruby?
+    yes_count: 1
+    yes_users_id:
+    - 3
+    no_count: 1
+    no_users_id:
+    - 1 
+    neutral_count: 1
+    neutral_users_id:
+    - 9
+    comments:
+    -  comment:
+        body: Python rocks!
+        users_id: 3 
+        vote: 1
+        count: 0
+    -  comment:
+        body: Sorry. This is for nerds.
+        users_id: 1 
+        vote: -1
+        count: 0
+    -  comment:
+        body: I know guys who created Debate startup in 1 day in Ruby. It's impossible for Java!
+        users_id: 1 
+        vote: -1
+        count: 0
+    -  comment:
+        body: Is it some new films?
+        users_id: 9 
+        vote: 0
+        count: 0   
+     
