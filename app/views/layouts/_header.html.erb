@@ -4,7 +4,7 @@
 
     <% if controller.authorized? %>
         <div class="log_in_out">
-          <%= link_to t(:logout), logout_url, {:id => "logout"} %>
+          <%= link_to "Logout", logout_url, {:id => "logout"} %>
         </div>
 
     <% else %>

@@ -48,8 +48,6 @@ class TwitterController < ApplicationController
     # search user using screen name
     user = User.login(credentials, result)
 
-    #Updates user profile image
-    user.update_avatar
     # cleans cache fragments
     expire_fragment(%r{link_id_\d*_author_id_#{user.id}_voted_\d*})
     expire_fragment(%r{comment_id_\d*_author_id_#{user.id}})

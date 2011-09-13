@@ -3,6 +3,10 @@
 
 en:
   hello: "Hello world"
+  oauth_error: "Sorry, but OAuth error occurred"
+    twitter_denided: "You deny access to Twitter"
+    twitter_error: "Sorry, but Twitter error occurred"
+
 users:
 -  user:
     name: ivan:

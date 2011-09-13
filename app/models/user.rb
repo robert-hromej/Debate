@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     "http://twitter.com/#{self.screen_name}"
   end
 
+  def profile_image
+    "http://api.twitter.com/1/users/profile_image/#{self.screen_name}.json?size=normal"
+  end
+
   # searches user using screen name or create new one with specific oauth token and secret
   def self.login(credentials, result)
     # use exiting record for already registered users
