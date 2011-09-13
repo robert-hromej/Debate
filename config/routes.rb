@@ -1,4 +1,17 @@
 Debate::Application.routes.draw do
+
+  get "home/index"
+
+  resources :debate_question, :shallow => true do
+    resources :comment do
+      resource :comment_vote
+    end
+
+    resources :debate_vote
+  end
+
+  root :to => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
