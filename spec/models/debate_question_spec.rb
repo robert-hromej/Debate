@@ -24,7 +24,5 @@ describe DebateQuestion do
       DebateQuestion.new(:body => "Hello, Membas!").should be_valid
     end
   end
-  it "s" do
-    create(:comment)
-  end
+
 end

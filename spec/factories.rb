@@ -1,7 +1,7 @@
 require 'factory_girl'
 require 'faker'
 id_user = lambda{User.first.try(:id) || Factory(:user).id}
-
+#
 FactoryGirl.define do
  factory :user do
     sequence(:oauth_secret) { |n| "oauth-login#{n}"}
