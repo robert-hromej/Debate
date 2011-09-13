@@ -21,7 +21,7 @@ describe DebateQuestion do
     end
 
     it "should not save instance 'with no user'" do
-      DebateQuestion.new(:body => "Hello, Membas!").should be_valid
+      DebateQuestion.new(:body => "Hello, Membas!").should_not be_valid
     end
   end
 

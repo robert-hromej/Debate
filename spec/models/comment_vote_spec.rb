@@ -18,6 +18,4 @@ describe CommentVote do
     CommentVote.new(@attr.merge(:comment_id => nil)).should_not be_valid
   end
 
-
-
 end
