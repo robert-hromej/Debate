@@ -5,6 +5,9 @@ gem 'rails', '3.0.9'
 #gem 'sqlite3'
 gem 'mysql2', "~> 0.2.5"
 
+gem 'oauth'
+gem 'twitter'
+
 group :development, :test do
   gem "rspec", "~> 2.6.0"
   gem "rspec-rails", "~> 2.4"

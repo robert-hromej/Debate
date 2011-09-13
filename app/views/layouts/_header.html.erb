@@ -1,0 +1,40 @@
+<div id="page_header">
+  <div class="menu">
+    <div id="logo">
+
+    <% if controller.authorized? %>
+        <div class="log_in_out">
+          <%= link_to t(:logout), logout_url, {:id => "logout"} %>
+        </div>
+
+    <% else %>
+        <div class="twitter_but">
+          <%= link_to image_tag("/images/twitter_button.gif"), login_url, :id => "twitter_login_but" %>
+        </div>
+    <% end %>
+
+    <div class="log_in_out">
+      <%= link_to t(:home), root_url %>
+    </div>
+  </div>
+  <% if controller.authorized? %>
+      <div id="ruller"></div>
+      <div id="user_section">
+        <div id="user_ava">
+          <img src="<%= controller.current_user.profile_image %>" alt=""/>
+        </div>
+        <div id="greeting">
+          <h3>
+            #<%= t(:welocme) %>
+            <%= link_to controller.current_user.screen_name, controller.current_user.profile_url, :class => "welcome_link" %>
+          </h3>
+        </div>
+      </div>
+  <% end %>
+
+  <div id="system_message"> <%= system_messages %> </div>
+
+  </div>
+
+</div>
+
