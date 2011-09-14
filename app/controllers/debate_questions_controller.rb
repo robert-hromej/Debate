@@ -5,6 +5,7 @@ class DebateQuestionsController < ApplicationController
   end
 
   def show
+    @debate_question = current_user.debate_questions.find(params[:id])
   end
 
   def create

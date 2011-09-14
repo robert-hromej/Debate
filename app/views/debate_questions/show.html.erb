@@ -1,2 +1,18 @@
-<h1>DebateQuestion#show</h1>
-<p>Find me in app/views/debate_question/show.html.erb</p>
+<h1>DebateQuestion</h1>
+<p><%= @debate_question.body %></p>
+
+<p>Comments:</p>
+
+<div id="comments">
+    <%= render @debate_question.comments %>
+</div>
+
+<h2>New Comment</h2>
+<%= form_for (Comment.new, :url => debate_question_comments_path(@debate_question)) do |f| %>
+    <%= f.hidden_field :debate_question_id, :value => @debate_question.id %>
+    <p>
+      <%= f.label :body %>
+      <%= f.text_area :body, :size => "20x10" %>
+      <%= f.submit %>
+    </p>
+<% end %>
