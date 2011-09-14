@@ -4,7 +4,8 @@ class CommentVote < ActiveRecord::Base
   belongs_to :comment
 
   validates_presence_of :comment_id, :user_id
-  
+  validates_uniqueness_of :comment_id, :scope => :user_id
+
   after_create :recounting
 
   def recounting

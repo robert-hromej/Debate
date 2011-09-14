@@ -5,9 +5,11 @@
   <%= comment.created_at %>
 </p>
 <p>
+<div id="comment_votes_counter_<%= comment.id %>">
   <%= comment.counter %>
+</div>
 </p>
 <div id="comment_vote_<%= comment.id %>">
-    <%= button_to "+1", comment_comment_votes_path(comment) %>
+  <%= button_to "+1", comment_comment_votes_path(comment), :remote => true, :method => :post %>
 </div>
 <br/>
