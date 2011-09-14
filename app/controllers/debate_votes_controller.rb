@@ -4,7 +4,7 @@ class DebateVotesController < ApplicationController
 
   def create
     @debate = DebateQuestion.find(params[:debate_question_id])
-    vote = @debate.debate_votes.new
+    vote = @debate.debate_votes.where(:user_id => current_user.id).first || @debate.debate_votes.new
     vote.current_vote = params[:vote]
     vote.user_id = current_user.id
     vote.save
