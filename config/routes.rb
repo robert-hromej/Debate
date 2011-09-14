@@ -7,12 +7,12 @@ Debate::Application.routes.draw do
 
   get "twitter/after_login"
 
-  resources :debate_questions, :shallow => true do
-    resources :comments do
-      resource :comment_votes
+  resources :debate_questions, :only => [:index, :show, :create], :shallow => true do
+    resources :comments, :only => [:create] do
+      resource :comment_votes, :only => [:create]
     end
 
-    resources :debate_votes
+    resources :debate_votes, :only => [:create]
   end
 
   root :to => "home#index"
