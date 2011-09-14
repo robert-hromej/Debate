@@ -1,11 +1,13 @@
 class DebateQuestionsController < ApplicationController
 
+  before_filter :is_logged?
+
   def index
     @debates = DebateQuestion.paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
-    @debate_question = current_user.debate_questions.find(params[:id])
+    @debate_question = DebateQuestion.find(params[:id])
   end
 
   def create
