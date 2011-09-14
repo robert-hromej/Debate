@@ -1,14 +1,7 @@
 <br>
-<br>
 
-<% @debates.each do |debat| %>
-    <%= debat.body %>
+<%= will_paginate @debates %>
 
-    <%= button_to "Yes(#{debat.yes_count})", vote_debate_vote_path(debat.id, :current_vote => 1) %>
-    <%= button_to "No(#{debat.no_count})", vote_debate_vote_path(debat.id, :current_vote => -1) %>
-    <%= button_to "Neutral(#{debat.neutral_count})", vote_debate_vote_path(debat.id, :current_vote => 0) %>
-
-    <br>
-<% end %>
+<%= render @debates %>
 
 <%= will_paginate @debates %>

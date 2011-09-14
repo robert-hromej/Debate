@@ -1,9 +1,9 @@
 class DebateQuestionsController < ApplicationController
 
-  before_filter :is_logged?
+  before_filter :is_logged?, :except => [:index]
 
   def index
-    @debates = DebateQuestion.paginate(:page => params[:page], :per_page => 20)
+    @debates = DebateQuestion.all_debates(:recent).paginate(:page => params[:page], :per_page => 20)
   end
 
   def show

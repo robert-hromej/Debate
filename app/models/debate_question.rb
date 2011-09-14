@@ -13,8 +13,19 @@ class DebateQuestion < ActiveRecord::Base
   validates :body, :presence => true, :length => {:within => 3..256}
   validates :user_id, :presence => true
 
-  scope :top_debates, select("(yes_count + no_count  + neutral_count) as votes, debate_questions.*").order("votes DESC").limit(5)
-  scope :recent_debates, order("created_at DESC").limit(5)
+  scope :top_debates, select("(yes_count + no_count  + neutral_count) as votes, debate_questions.*").order("votes DESC")
+  scope :recent_debates, order("created_at DESC")
+
+  def self.all_debates(sort = :top)
+    case sort
+      when :top
+        top_debates
+      when :recent
+        recent_debates
+      else
+        recent_debates
+    end
+  end
 
   def recounting
     self.update_attributes(:yes_count => self.debate_yes_votes.count,

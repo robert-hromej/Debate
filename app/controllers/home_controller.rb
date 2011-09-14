@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @top_debates = DebateQuestion.top_debates
-    @recent_debates = DebateQuestion.recent_debates
+    @top_debates = DebateQuestion.all_debates(:top).limit(5)
+    @recent_debates = DebateQuestion.all_debates(:recent).limit(5)
     @new_debate_question = DebateQuestion.new
   end
 
