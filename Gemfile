@@ -28,3 +28,4 @@ group :test do
   #   -->This will freeze time for better testing issue
   gem "timecop"
 end
+gem 'jquery-rails', '>= 1.0.12'

@@ -35,9 +35,10 @@ describe User do
       @user.should respond_to(:profile_image)
     end
 
-    #it "should have valid profile_image" do
-    #  (@user.profile_image == '/images/no-avatar.png').should be_true
-    #end
+    it "should have valid profile_image" do
+      pending
+      (@user.profile_image == '/images/no-avatar.png').should be_true
+    end
 
     it "should have profile_url method" do
       @user.should respond_to(:profile_url)
