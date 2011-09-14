@@ -10,4 +10,5 @@ class DebateQuestionController < ApplicationController
   def new
   end
 
+
 end

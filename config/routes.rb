@@ -6,7 +6,6 @@ Debate::Application.routes.draw do
   get 'logout', :to => 'twitter#logout', :as => "logout"
 
   get "twitter/after_login"
-
   resources :debate_question, :shallow => true do
     resources :comment do
       resource :comment_vote
