@@ -5,6 +5,9 @@
   <%= comment.created_at %>
 </p>
 <p>
-  <%= comment.vote %>
+  <%= comment.counter %>
 </p>
+<div id="comment_vote_<%= comment.id %>">
+    <%= button_to "+1", comment_comment_votes_path(comment) %>
+</div>
 <br/>
