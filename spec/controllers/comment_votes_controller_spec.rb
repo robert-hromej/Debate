@@ -4,7 +4,7 @@ describe CommentVotesController do
 
   describe "GET 'new'" do
     it "should be successful" do
-      get 'new'
+      post 'create'#, :comment_id => 1
       response.should be_success
     end
   end

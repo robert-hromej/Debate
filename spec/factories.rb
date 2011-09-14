@@ -20,12 +20,12 @@ FactoryGirl.define do
     sequence(:body) {Faker::Lorem.sentence(2)}
   end
 
-  factory :debate_questions do
+  factory :debate_question do
     sequence(:body) {Faker::Lorem.sentence(2)}
     user_id { id_user }
    end
 
-  factory :comments do
+  factory :comment do
     user_id { id_user }
     sequence(:body) {Faker::Lorem.sentence(2)}
     debate_question_id { DebateQuestion.first.try(:id) || Factory(:debate_vote).id }

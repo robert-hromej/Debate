@@ -11,14 +11,14 @@ describe DebateQuestionsController do
 
   describe "GET 'show'" do
     it "should be successful" do
-      get 'show'
+      get 'show'#, :id => 1
       response.should be_success
     end
   end
 
   describe "GET 'new'" do
     it "should be successful" do
-      get 'new'
+      post 'create'
       response.should be_success
     end
   end

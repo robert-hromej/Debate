@@ -8,7 +8,7 @@ describe CommentVote do
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
   it { should respond_to(:comment_id) }
-  it { should respond_to(:comments) }
+  it { should respond_to(:comment) }
 
   it "should not be valid without user" do
     CommentVote.new(@attr.merge(:user_id => nil)).should_not be_valid

@@ -4,7 +4,7 @@ describe DebateVotesController do
 
   describe "GET 'new'" do
     it "should be successful" do
-      get 'new'
+      post 'create'#, :debate_question_id => 1
       response.should be_success
     end
   end
