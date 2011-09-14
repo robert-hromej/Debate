@@ -13,3 +13,15 @@ class CommentVote < ActiveRecord::Base
 
 end
 
+
+# == Schema Information
+#
+# Table name: comment_votes
+#
+#  id         :integer(4)      not null, primary key
+#  user_id    :integer(4)      not null
+#  comment_id :integer(4)      not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+

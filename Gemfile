@@ -8,6 +8,7 @@ gem 'mysql2', "~> 0.2.5"
 gem 'oauth'
 gem 'twitter'
 gem 'will_paginate'
+gem 'annotate', '2.4.0'
 
 group :development, :test do
   gem "rspec", "~> 2.6.0"

@@ -26,3 +26,18 @@ describe DebateQuestion do
   end
 
 end
+
+# == Schema Information
+#
+# Table name: debate_questions
+#
+#  id            :integer(4)      not null, primary key
+#  user_id       :integer(4)
+#  body          :string(255)     not null
+#  yes_count     :integer(4)      default(0)
+#  no_count      :integer(4)      default(0)
+#  neutral_count :integer(4)      default(0)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+

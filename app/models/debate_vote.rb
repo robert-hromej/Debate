@@ -13,3 +13,16 @@ class DebateVote < ActiveRecord::Base
   end
 
 end
+
+# == Schema Information
+#
+# Table name: debate_votes
+#
+#  id                 :integer(4)      not null, primary key
+#  user_id            :integer(4)      not null
+#  debate_question_id :integer(4)      not null
+#  current_vote       :integer(4)      not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+

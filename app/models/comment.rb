@@ -13,3 +13,18 @@ class Comment < ActiveRecord::Base
   end
 
 end
+
+# == Schema Information
+#
+# Table name: comments
+#
+#  id                 :integer(4)      not null, primary key
+#  user_id            :integer(4)      not null
+#  debate_question_id :integer(4)      not null
+#  counter            :integer(4)      default(0), not null
+#  body               :string(255)     not null
+#  vote               :integer(4)      default(0), not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+
