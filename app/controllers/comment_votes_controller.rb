@@ -1,5 +1,5 @@
 class CommentVotesController < ApplicationController
-  def new
+  def create
   end
 
 end

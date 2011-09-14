@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  def new
+  def create
 
   end
 

@@ -1,5 +1,5 @@
 class DebateVotesController < ApplicationController
-  def new
+  def create
   end
 
 end
