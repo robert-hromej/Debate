@@ -1,6 +1,6 @@
 login: &login
   username: root
-  password: "1234"
+  password: 081092
   adapter: mysql2
   encoding: utf8
   reconnect: false
@@ -9,13 +9,13 @@ login: &login
   socket: /var/run/mysqld/mysqld.sock
 
 development:
-  database: Debate_development
+  database: debate_development
   <<: *login
 
 test:
-  database: Debate_test
+  database: debate_test
   <<: *login
 
 production:
-  database: Debate_production
+  database: debate_production
   <<: *login

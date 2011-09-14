@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe DebateQuestionController do
+describe DebateQuestionsController do
 
   describe "GET 'index'" do
     it "should be successful" do

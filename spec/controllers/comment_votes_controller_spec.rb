@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CommentVoteController do
+describe CommentVotesController do
 
   describe "GET 'new'" do
     it "should be successful" do

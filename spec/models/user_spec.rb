@@ -56,7 +56,7 @@ describe User do
       @user.should respond_to(:comments)
     end
 
-    it "should have many comment votes" do
+    it "should have many comments votes" do
       @user.should respond_to(:comment_votes)
     end
 

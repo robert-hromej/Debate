@@ -1,17 +1,17 @@
 require 'spec_helper'
 def valid_attr
-  {:debate_question_id => create(:debate_question).id,:user_id=> create(:user).id}
+  {:debate_question_id => create(:debate_questions).id,:user_id=> create(:user).id}
 end
 describe DebateVote do
   subject{ DebateVote.new }
-  it{should respond_to(:debate_question)}
+  it{should respond_to(:debate_questions)}
   it{should respond_to(:user)}
 
   describe "validations" do
     it "should not saved 'without user'" do
-      DebateVote.new(:debate_question_id => create(:debate_question).id).should_not be_valid
+      DebateVote.new(:debate_question_id => create(:debate_questions).id).should_not be_valid
     end
-    it "should not saved 'without debate_question'" do
+    it "should not saved 'without debate_questions'" do
       DebateVote.new(:user_id=> create(:user).id).should_not be_valid
     end
     it "should not accept wrong 'current_vote'" do
