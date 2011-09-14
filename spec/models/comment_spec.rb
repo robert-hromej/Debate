@@ -8,7 +8,7 @@ describe Comment do
   it { should respond_to(:user_id)}
   it { should respond_to(:user)}
   it { should respond_to(:debate_question_id) }
-  it { should respond_to(:debate_question) }
+  it { should respond_to(:debate_questions) }
   it { should respond_to(:counter) }
   it { should respond_to(:body) }
   it { should respond_to(:vote) }

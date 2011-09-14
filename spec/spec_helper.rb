@@ -30,7 +30,7 @@ Spork.prefork do
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
-    # examples within a transaction, comment the following line or assign false
+    # examples within a transaction, comments the following line or assign false
     # instead of true.
     config.use_transactional_fixtures = true
 

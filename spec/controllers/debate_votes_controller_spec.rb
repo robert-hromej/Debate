@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe DebateVoteController do
+describe DebateVotesController do
 
   describe "GET 'new'" do
     it "should be successful" do

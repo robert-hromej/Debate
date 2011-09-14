@@ -1,14 +1,18 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 
+<h2>New debate</h2>
+
+<%= render 'debate_questions/new_debate_question' %>
+
 <h2>Top debates</h2>
 
 <div id="top_debates">
-   <%= render :partial => 'debate_question/debate_question', :collection =>  @top_debates  %>
+   <%= render @top_debates  %>
 </div>
 
 <h2>Recent debates</h2>
 
 <div id="recent_debates">
-    <%= render :partial => 'debate_question/debate_question', :collection =>  @recent_debates  %>
+    <%= render @recent_debates  %>
 </div>

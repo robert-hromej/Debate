@@ -1,4 +1,4 @@
-class DebateQuestionController < ApplicationController
+class DebateQuestionsController < ApplicationController
 
   def index
     @debates = DebateQuestion.paginate(:page => params[:page], :per_page => 20)
