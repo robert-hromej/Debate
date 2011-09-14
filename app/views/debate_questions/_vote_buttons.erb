@@ -1,0 +1,6 @@
+<%= button_to "Yes(#{debate.yes_count})", debate_question_debate_votes_path(debate.id, :vote => 1),
+              :method => :post, :remote => true %>
+<%= button_to "No(#{debate.no_count})", debate_question_debate_votes_path(debate.id, :vote => -1),
+              :method => :post, :remote => true %>
+<%= button_to "Neutral(#{debate.neutral_count})", debate_question_debate_votes_path(debate.id, :vote => 0),
+              :method => :post, :remote => true %>
