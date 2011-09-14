@@ -1,5 +1,0 @@
-if @comment
-  page.insert_html :before, :comments, (render @comment)
-else
-  page.replace_html :system_message, system_messages
-end
