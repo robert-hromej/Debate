@@ -4,3 +4,5 @@
 en:
   hello: "Hello world"
   logout: "Log out"
+  debate_not_valid: "Debate not valid"
+  debate_created: "Debate succesufly created"
