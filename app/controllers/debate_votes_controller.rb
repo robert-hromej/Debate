@@ -9,6 +9,7 @@ class DebateVotesController < ApplicationController
     vote.user_id = current_user.id
     vote.save
     @debate.reload
+    @analytics_data = @debate.analytics_data
     push_notice_message t('notice.success.debate_voted')
   rescue StandardError => ex
     push_error_message t('error.you_already_debate_voted')

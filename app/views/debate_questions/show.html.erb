@@ -1,9 +1,7 @@
-<script>
-   new Analytics(<%= @analytics_data.to_json.html_safe %>);
-</script>
 <h1>DebateQuestion</h1>
-<div id="placeholder_by_debate_analytics" style="width:960px;height:300px;"></div>
-<div id="overview_by_debate_analytics" style="margin-top:20px;width:960px;height:100px"></div>
+<div id="analytics">
+  <%= render :partial => "debate_questions/analytics", :locals => {:analytics_data => @analytics_data} %>
+</div>
 <p><%= @debate_question.body %></p>
 
 <div id="vote_buttons">

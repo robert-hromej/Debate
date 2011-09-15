@@ -6,9 +6,10 @@ function Analytics(analytics_data) {
           data_name.push(key);
           data_values.push(value);
         });
-        var number_rows = Math.round(data_name.length / 13) + 1;
+        //var number_columns = Math.round(data_name.length / 13) + 1;
+        $.jqplot.config.enablePlugins = true;
         //Create graphic
-        plot_for_debate_analytics = $.jqplot('placeholder_by_debate_analytics', data_values, {
+        var plot_for_debate_analytics = $.jqplot('placeholder_by_debate_analytics', data_values, {
             title: 'Votes',
             axes: {
                 xaxis: {
@@ -34,10 +35,9 @@ function Analytics(analytics_data) {
                 show:true,
                 escapeHtml:true,
                 labels:data_name,
-                placement: 'outsideGrid',
-                location: 's',
+                location: 'ne',
                 rendererOptions: {
-                    numberRows: number_rows
+                    numberColumns: 1
                 }
             },
             highlighter: {
@@ -50,7 +50,7 @@ function Analytics(analytics_data) {
                 show:false
             }
         });
-        overview_plot_by_debate_analytics = $.jqplot('overview_by_debate_analytics', data_values, {
+        var overview_plot_by_debate_analytics = $.jqplot('overview_by_debate_analytics', data_values, {
             axesDefaults:{
                 tickOptions: {
                     formatString:"%d",
