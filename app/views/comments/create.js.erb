@@ -1,0 +1,5 @@
+<% if @comment %>
+    $("#comments").prepend('<%= escape_javascript render @comment %>');
+<% else %>
+    $("#system_message").html('<%= escape_javascript system_messages %>');
+<% end %>
