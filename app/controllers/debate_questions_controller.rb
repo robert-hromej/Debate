@@ -11,15 +11,14 @@ class DebateQuestionsController < ApplicationController
   end
 
   def create
-    debate_question = current_user.debate_questions.create(params[:debate_question])
+    debate_question = current_user.debate_questions.create!(params[:debate_question])
 
-    if debate_question
-      push_error_message t(:debate_created)
-      redirect_to debate_question
-    else
-      push_error_message t(:debate_not_valid)
-      redirect_to root_path
-    end
+    push_error_message t(:debate_created)
+    redirect_to debate_question
+
+  rescue StandardError => ex
+    push_error_message t(:debate_not_valid)
+    redirect_to root_path
   end
 
 end
