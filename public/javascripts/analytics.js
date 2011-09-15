@@ -3,18 +3,12 @@ function Analytics(analytics_data) {
         var data_name = [];
         var data_values = [];
         $.each(analytics_data, function (key, value) {
-            $.each(value, function(key, value) {
-                if (key == "label") {
-                    data_name.push(value);
-                }
-                if (key == "data") {
-                    data_values.push(value);
-                }
-            });
+          data_name.push(key);
+          data_values.push(value);
         });
         var number_rows = Math.round(data_name.length / 13) + 1;
         //Create graphic
-        var plot_for_debate_analytics = $.jqplot('placeholder_by_debate_analytics', data_values, {
+        plot_for_debate_analytics = $.jqplot('placeholder_by_debate_analytics', data_values, {
             title: 'Votes',
             axes: {
                 xaxis: {
@@ -56,7 +50,7 @@ function Analytics(analytics_data) {
                 show:false
             }
         });
-        var overview_plot_by_debate_analytics = $.jqplot('overview_by_debate_analytics', data_values, {
+        overview_plot_by_debate_analytics = $.jqplot('overview_by_debate_analytics', data_values, {
             axesDefaults:{
                 tickOptions: {
                     formatString:"%d",
