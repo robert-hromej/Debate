@@ -1,1 +1,2 @@
 $("#comment_votes_counter_<%= @comment.id %>").html('<%= @comment.counter %>');
+$("#comment_vote_<%= @comment.id %>").html('<%= escape_javascript comment_vote_button(@comment) %>');

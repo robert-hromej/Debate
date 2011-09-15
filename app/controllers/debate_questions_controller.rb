@@ -7,7 +7,7 @@ class DebateQuestionsController < ApplicationController
   end
 
   def show
-    @debate_question = DebateQuestion.find(params[:id])
+    @debate_question = DebateQuestion.includes(:comments => :comment_votes).find(params[:id])
   end
 
   def create

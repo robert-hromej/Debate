@@ -10,6 +10,6 @@
 </div>
 </p>
 <div id="comment_vote_<%= comment.id %>">
-  <%= button_to "+1", comment_comment_votes_path(comment), :remote => true, :method => :post %>
+  <%= comment_vote_button(comment) %>
 </div>
 <br/>
