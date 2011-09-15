@@ -9,6 +9,7 @@ class DebateQuestionsController < ApplicationController
   def show
     @debate_question = DebateQuestion.includes(:comments => :comment_votes).find(params[:id])
     @comments = @debate_question.comments.paginate(:page => params[:page])
+    @analytics_data = @debate_question.analytics_data
   end
 
   def create

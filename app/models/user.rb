@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :comment_votes
 
-  validates :screen_name, :uniqueness => true, :presence => true, :length => {:maximum => 255}
+  validates :screen_name, :presence => true, :length => {:maximum => 255}, :uniqueness => true
   validates :oauth_secret, :presence => true
   validates :oauth_token, :presence => true
 

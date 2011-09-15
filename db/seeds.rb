@@ -5,10 +5,10 @@ DebateVote.destroy_all
 Comment.destroy_all
 CommentVote.destroy_all
 
-20.times do
+1000.times do
   User.create!(:screen_name => Faker::Name.first_name, :oauth_token => "oauth_token", :oauth_secret => "oauth_secret")
 end
-puts "created 20 users"
+puts "created 1000 users"
 users = User.all
 
 50.times do
@@ -32,8 +32,8 @@ end
 puts "created #{CommentVote.all.count} debate_votes"
 
 debate_questions.each do |debate_question|
-  users.shuffle[0..(rand(5)+5)].each do |user|
-    DebateVote.create!(:user => user, :current_vote => rand(3)-1, :debate_question => debate_question)
+  users.shuffle[0..500].each do |user|
+    DebateVote.create!(:user => user, :current_vote => rand(3)-1, :debate_question => debate_question, :updated_at => Time.now + rand(3600*24*30))
   end
 end
 puts "created #{DebateVote.all.count} debate_votes"
