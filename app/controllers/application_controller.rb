@@ -29,7 +29,13 @@ class ApplicationController < ActionController::Base
   # add message
   def push_message(type, msg)
     session[:system_message] ||= {:notice => [], :error => []}
-    session[:system_message][type] << msg
+    if msg.is_a?(::Hash)
+      msg.full_messages.each do |m|
+        session[:system_message][type] << m
+      end
+    else
+      session[:system_message][type] << msg
+    end
   end
 
   private
