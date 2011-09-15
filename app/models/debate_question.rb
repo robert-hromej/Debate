@@ -2,7 +2,7 @@ class DebateQuestion < ActiveRecord::Base
 
   belongs_to :user
   has_many :debate_votes
-  has_many :comments
+  has_many :comments, :order => "created_at DESC"
 
   has_many :debate_yes_votes, :class_name => "DebateVote", :conditions => {:current_vote => 1}
   has_many :debate_no_votes, :class_name => "DebateVote", :conditions => {:current_vote => -1}
