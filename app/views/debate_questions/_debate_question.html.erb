@@ -1,6 +1,6 @@
 <div id="debate">
     <p><%= link_to debate_question.body, debate_question_path(debate_question) %></p>
-    <p>Yes votes <%= debate_question.yes_count %></p>
-    <p>No votes <%= debate_question.no_count %></p>
-    <p>Neutral votes <%= debate_question.neutral_count %></p>
+    <p> <%= t('yes_votes') %>: <%= debate_question.yes_count %></p>
+    <p> <%= t('no_votes') %>: <%= debate_question.no_count %></p>
+    <p> <%= t('neutral_votes') %>: <%= debate_question.neutral_count %></p>
 </div>

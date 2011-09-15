@@ -81,11 +81,10 @@ class TwitterController < ApplicationController
   # generate callback url for twitter login
   def oauth_callback
     @callback_url ||= "http://#{request.host_with_port}/twitter/after_login"
-    return @callback_url
   end
 
-  def twitter_authenticate oauth_token
-    return "https://api.twitter.com/oauth/authenticate?oauth_token=#{oauth_token}"
+  def twitter_authenticate(oauth_token)
+    "https://api.twitter.com/oauth/authenticate?oauth_token=#{oauth_token}"
   end
 
 end

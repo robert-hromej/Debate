@@ -1,6 +1,6 @@
-<%= button_to "Yes(#{debate.yes_count})", debate_question_debate_votes_path(debate.id, :vote => 1),
+<%= button_to t('button.yes_counter', :count => debate.yes_count), debate_question_debate_votes_path(debate.id, :vote => 1),
               :method => :post, :remote => true, :disabled => voted?(debate, :yes) %>
-<%= button_to "No(#{debate.no_count})", debate_question_debate_votes_path(debate.id, :vote => -1),
+<%= button_to t('button.no_counter', :count => debate.no_count), debate_question_debate_votes_path(debate.id, :vote => -1),
               :method => :post, :remote => true, :disabled => voted?(debate, :no) %>
-<%= button_to "Neutral(#{debate.neutral_count})", debate_question_debate_votes_path(debate.id, :vote => 0),
+<%= button_to t('button.neutral_counter', :count => debate.neutral_count), debate_question_debate_votes_path(debate.id, :vote => 0),
               :method => :post, :remote => true, :disabled => voted?(debate, :neutral) %>

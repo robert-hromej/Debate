@@ -16,10 +16,10 @@
       <% end %>
 
       <li>
-        <%= link_to "All Debates", debate_questions_path %>
+        <%= link_to t('all_debates'), debate_questions_path %>
       </li>
       <li>
-        <%= link_to "Home", root_url %>
+        <%= link_to t('home'), root_url %>
       </li>
 
       <% if controller.authorized? %>
@@ -30,7 +30,7 @@
               </div>
               <div id="greeting">
                 <h3>
-                  Welcome
+                  <%= t('welcome') %>
                   <%= link_to controller.current_user.screen_name, controller.current_user.profile_url, :class => "welcome_link" %>
                 </h3>
               </div>

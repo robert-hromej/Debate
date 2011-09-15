@@ -2,7 +2,27 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
   logout: "Log out"
   debate_not_valid: "Debate not valid"
   debate_created: "Debate succesufly created"
+  comments: "Comments"
+  new_comment: "New Comment"
+  top_debates: "Top debates"
+  yes_votes: "Yes votes"
+  no_votes: "No votes"
+  neutral_votes: "Neutral votes"
+  notice:
+    success:
+      debate_voted: "you success voted..."
+  error:
+    you_already_debate_voted: "you already voted..."
+  button:
+    yes_counter: "Yes(%{count})"
+    no_counter: "No(%{count})"
+    neutral_counter: "Neutral(%{count})"
+  recent_debates: "Recent debates"
+  new_debate: "New debate"
+  all_debates: "All Debates"
+  home: "Home"
+  welcome: "Welcome"
+  debates: "Debates"

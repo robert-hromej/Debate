@@ -9,9 +9,9 @@ class DebateVotesController < ApplicationController
     vote.user_id = current_user.id
     vote.save
     @debate.reload
-    push_notice_message "you success voted..."
+    push_notice_message t('notice.success.debate_voted')
   rescue StandardError => ex
-    push_error_message "you already voted..."
+    push_error_message t('error.you_already_debate_voted')
   end
 
 end
