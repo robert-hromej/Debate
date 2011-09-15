@@ -8,7 +8,7 @@ Debate::Application.routes.draw do
   get "twitter/after_login"
 
   resources :debate_questions, :only => [:index, :show, :create], :shallow => true do
-    resources :comments, :only => [:create] do
+    resources :comments, :only => [:create, :index] do
       resource :comment_votes, :only => [:create]
     end
 

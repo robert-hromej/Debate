@@ -1,0 +1,6 @@
+<%= will_paginate @comments, :class => :ajax_paginator, :params => { :controller => :comments,
+                                                                     :action => :index,
+                                                                     :id => nil,
+                                                                     :debate_question_id => @debate_question.id } %>
+
+<%= render @comments %>

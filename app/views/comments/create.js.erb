@@ -1,6 +1,9 @@
-<% if @comment %>
-    $("#comments").prepend('<%= escape_javascript render @comment %>');
-    $("#comment_body").val("");
+<% if @comments %>
+    $("#comments").html('<%= escape_javascript render 'comments/list' %>');
+    $("#comment_body").val('');
+    jQuery(function($) {
+        observe_element('ajax_paginator');
+    });
 <% else %>
     $("#system_message").html('<%= escape_javascript system_messages %>');
 <% end %>

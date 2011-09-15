@@ -3,11 +3,12 @@ class DebateQuestionsController < ApplicationController
   before_filter :is_logged?, :except => [:index]
 
   def index
-    @debates = DebateQuestion.all_debates(:recent).paginate(:page => params[:page], :per_page => 20)
+    @debates = DebateQuestion.all_debates(:recent).paginate(:page => params[:page])
   end
 
   def show
     @debate_question = DebateQuestion.includes(:comments => :comment_votes).find(params[:id])
+    @comments = @debate_question.comments.paginate(:page => params[:page])
   end
 
   def create

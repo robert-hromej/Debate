@@ -1,4 +1,5 @@
 class DebateQuestion < ActiveRecord::Base
+  self.per_page = 20
 
   belongs_to :user
   has_many :debate_votes
