@@ -32,7 +32,7 @@ end
 puts "created #{CommentVote.all.count} debate_votes"
 
 debate_questions.each do |debate_question|
-  users.shuffle[0..500].each do |user|
+  users.shuffle[0..300].each do |user|
     DebateVote.create!(:user => user, :current_vote => rand(3)-1, :debate_question => debate_question, :updated_at => Time.now + rand(3600*24*30))
   end
 end
