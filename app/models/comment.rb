@@ -8,9 +8,13 @@ class Comment < ActiveRecord::Base
   validates :body, :length => {:within => 3..256}, :presence => true
 
   validates_presence_of :vote, :user_id, :debate_question_id
-  
+
   def recounting
     self.update_attribute(:counter, self.comment_votes.count)
+  end
+
+  def vote?(user_id)
+    !comment_votes.where(:user_id => user_id).first.blank?
   end
 
 end

@@ -7,11 +7,12 @@ class DebateVote < ActiveRecord::Base
   belongs_to :user
   belongs_to :debate_question
 
+  scope :uniq_votes, sub_query(DebateVote.order("id desc")).group("#{table_name}.user_id, #{table_name}.debate_question_id")
+
   after_save :recounting
 
   validates_presence_of :user_id, :debate_question_id
   validates :current_vote, :inclusion => [-1, 0, 1]
-  validates_uniqueness_of :user_id, :scope => :debate_question_id
 
   def recounting
     debate_question.recounting
@@ -25,6 +26,17 @@ class DebateVote < ActiveRecord::Base
         no?
       when :neutral
         neutral?
+    end
+  end
+
+  def vote
+    case current_vote
+      when YES
+        :yes
+      when NO
+        :no
+      when NEUTRAL
+        :neutral
     end
   end
 

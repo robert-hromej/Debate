@@ -14,7 +14,6 @@ class CommentVote < ActiveRecord::Base
 
 end
 
-
 # == Schema Information
 #
 # Table name: comment_votes
