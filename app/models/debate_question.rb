@@ -4,10 +4,6 @@ class DebateQuestion < ActiveRecord::Base
   has_many :debate_votes
   has_many :comments
 
-  has_many :debate_yes_votes, :class_name => "DebateVote", :conditions => {:current_vote => 1}
-  has_many :debate_no_votes, :class_name => "DebateVote", :conditions => {:current_vote => -1}
-  has_many :debate_neutral_votes, :class_name => "DebateVote", :conditions => {:current_vote => 0}
-
   attr_accessible :body, :yes_count, :no_count, :neutral_count, :user_id
 
   validates :body, :presence => true, :length => {:within => 3..256}
@@ -27,10 +23,27 @@ class DebateQuestion < ActiveRecord::Base
     end
   end
 
+  def uniq_votes
+    DebateVote.uniq_votes.where(:debate_question_id => self.id)
+  end
+
   def recounting
-    self.update_attributes(:yes_count => self.debate_yes_votes.count,
-                           :no_count => self.debate_no_votes.count,
-                           :neutral_count => self.debate_neutral_votes.count)
+    result = DebateVote.sub_query(uniq_votes).count(:id, :group => :current_vote)
+    self.update_attributes(:yes_count => result[DebateVote::YES] || 0,
+                           :no_count => result[DebateVote::NO] || 0,
+                           :neutral_count => result[DebateVote::NEUTRAL] || 0)
+  end
+
+  def vote?(user_id)
+    if user_vote(user_id)
+      @user_vote.vote
+    else
+      nil
+    end
+  end
+
+  def user_vote(user_id)
+    @user_vote ||= debate_votes.where(:user_id => user_id).last
   end
 
 end
