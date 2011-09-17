@@ -5,37 +5,50 @@ DebateVote.destroy_all
 Comment.destroy_all
 CommentVote.destroy_all
 
-1000.times do
-  User.create!(:screen_name => Faker::Name.first_name, :oauth_token => "oauth_token", :oauth_secret => "oauth_secret")
-end
-puts "created 1000 users"
-users = User.all
-
-50.times do
-  DebateQuestion.create!(:user_id => users.shuffle.first.id, :body => "Debate body text....")
-end
-puts "created 50 debate_questions"
-debate_questions = DebateQuestion.all
-
-200.times do
-  Comment.create!(:user => users.shuffle.first, :debate_question => debate_questions.shuffle.first,
-                  :body => "Comment...", :vote => rand(3)-1)
-end
-puts "created 200 comments"
-comments = Comment.all
-
-comments.each do |comment|
-  users.shuffle[0..(rand(5)+5)].each do |user|
-    CommentVote.create!(:user => user, :comment => comment)
+User.transaction do
+  1000.times do |i|
+    User.create!(:screen_name => Faker::Name.first_name + i.to_s,
+                 :oauth_token => "oauth_token",
+                 :oauth_secret => "oauth_secret")
   end
 end
-puts "created #{CommentVote.all.count} debate_votes"
+puts "created #{User.all.size} users"
+users = User.all
 
-debate_questions.each do |debate_question|
-  users.shuffle[0..300].each do |user|
-    DebateVote.create!(:user => user, :current_vote => rand(3)-1, :debate_question => debate_question, :updated_at => Time.now + rand(3600*24*30))
+DebateQuestion.transaction do
+  25.times do
+    DebateQuestion.create!(:user_id => users.shuffle.first.id, :body => Faker::Lorem.sentence(10))
+  end
+end
+puts "created #{DebateQuestion.all.size} debate_questions"
+debate_questions = DebateQuestion.all
+
+Comment.transaction do
+  1000.times do
+    Comment.create!(:user => users.shuffle.first,
+                    :debate_question => debate_questions.shuffle.first,
+                    :body => Faker::Lorem.sentence(5),
+                    :vote => rand(3)-1)
+  end
+end
+puts "created #{Comment.all.size} comments"
+comments = Comment.all
+
+CommentVote.transaction do
+  comments.each do |comment|
+    users.shuffle[0..(rand(3)+2)].each do |user|
+      CommentVote.create!(:user => user, :comment => comment)
+    end
+  end
+end
+puts "created #{CommentVote.all.count} comment_votes"
+
+DebateVote.transaction do
+  10000.times do
+    DebateVote.create!(:user => users.shuffle.first,
+                       :current_vote => rand(3)-1,
+                       :debate_question => debate_questions.shuffle.first,
+                       :created_at => rand(3600*24*7).seconds.ago)
   end
 end
 puts "created #{DebateVote.all.count} debate_votes"
-
-

@@ -10,13 +10,9 @@ module ApplicationHelper
   def voted?(record, vote = :yes)
     case
       when record.is_a?(Comment)
-        record.comment_votes.index do |comment_vote|
-          comment_vote.user_id == controller.current_user.id
-        end
+        record.vote?(controller.current_user.id)
       when record.is_a?(DebateQuestion)
-        record.debate_votes.index do |debate_vote|
-          debate_vote.user_id == controller.current_user.id and debate_vote.vote?(vote)
-        end
+        record.vote?(controller.current_user.id) == vote
       else
         raise
     end
