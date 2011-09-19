@@ -5,6 +5,7 @@ gem 'rails', '3.0.9'
 #gem 'sqlite3'
 gem 'mysql2', "~> 0.2.5"
 
+
 gem 'oauth'
 gem 'twitter'
 gem 'will_paginate'
