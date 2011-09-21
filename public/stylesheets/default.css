@@ -215,6 +215,32 @@ p#backlinks a:hover {
     margin: 1.2em 2em 2em 1.2em;
 }
 
+/*Question*/
+.question {
+    background-color: #DDD;
+    border: 1px solid #AAA;
+    padding: 5px 12px 5px 12px;
+    margin: 14px 0 14px 0;
+    position: relative;
+    _width: 619px;
+    text-align: left;
+}
+
+.question p{
+    border: 1px solid gray;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    background-color: #DDDDDD;
+}
+
+/*Comments*/
+.comment{
+
+}
+#comments{
+    text-align: left;
+}
+
 /* Article */
 .article {
     background-color: #DDD;
@@ -232,7 +258,7 @@ p#backlinks a:hover {
     padding: 5px 12px 27px 12px;
     margin: 8px 0 14px 0;
     position: relative;
-    _width: 619px;
+    width: 619px;
     text-align: left;
 }
 

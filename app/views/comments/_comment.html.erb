@@ -1,17 +1,19 @@
-<p>
-  <%= comment.body %>
-</p>
-<p>
-  <%= comment.created_at %>
-</p>
-<p>
-<div id="comment_votes_counter_<%= comment.id %>">
-  <%= comment.counter %>
+<div class="comment">
+  <div class="comment_header">
+    <p>
+      <%= comment.created_at %>
+    </p>
+  </div>
+
+  <p>
+    <%= comment.body %>
+  </p>
+
+  <div id="comment_votes_counter_<%= comment.id %>">
+    <%= comment.counter %>
+  </div>
+  <div id="comment_vote_<%= comment.id %>">
+    <%= comment_vote_button(comment) %>
+  </div>
+  <br/>
 </div>
-</p>
-<% if controller.authorized? %>
-<div id="comment_vote_<%= comment.id %>">
-  <%= comment_vote_button(comment)  %>
-</div>
-<% end %>
-<br/>

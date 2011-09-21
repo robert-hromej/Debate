@@ -4,7 +4,7 @@
 </div>
 
 
-<div class="article">
+<div class="question">
   <p><%= @debate_question.body %></p>
 
   <% if controller.authorized? %>
@@ -14,7 +14,7 @@
   <% end %>
 </div>
 
-<p><%= t('comments') %>:</p>
+<h3><span><%= t('comments') %></span></h3>
 
 <div id="comments">
   <%= render 'comments/list' %>
