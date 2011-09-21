@@ -2,22 +2,25 @@
 <div id="analytics">
   <%= render :partial => "debate_questions/analytics", :locals => {:analytics_data => @analytics_data} %>
 </div>
-<p><%= @debate_question.body %></p>
 
-<% if controller.authorized? %>
-<div id="vote_buttons">
-  <%= render :partial => "debate_questions/vote_buttons", :locals => {:debate => @debate_question} %>
+
+<div class="article">
+  <p><%= @debate_question.body %></p>
+
+  <% if controller.authorized? %>
+  <div id="vote_buttons">
+    <%= render :partial => "debate_questions/vote_buttons", :locals => {:debate => @debate_question} %>
+  </div>
+  <% end %>
 </div>
-<% end %>
 
 <p><%= t('comments') %>:</p>
 
 <div id="comments">
-    <%= render 'comments/list' %>
+  <%= render 'comments/list' %>
 </div>
 
 <% if controller.authorized? %>
-
 <h2><%= t('new_comment') %></h2>
 <%= form_for (Comment.new, :url => debate_question_comments_path(@debate_question), :remote => true) do |f| %>
     <%= f.hidden_field :debate_question_id, :value => @debate_question.id %>
@@ -27,7 +30,4 @@
       <%= f.submit %>
     </p>
 <% end %>
-
-<% else %>
-<h2><%= t(:login_to_comment) %></h2>
 <% end %>
