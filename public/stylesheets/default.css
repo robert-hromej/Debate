@@ -269,27 +269,64 @@ p#backlinks a:hover {
 }
 
 .comment_area {
-    border: 1px solid;
     margin: 10px 0;
     padding: 5px 10px 0;
+    background-color: #b0e0e6;
 }
 
-.comment_area positive{
-    background-color: #8fbc8f;
+.positive {
+    background-color: #90ee90;
 }
-.comment_area negative{
+
+.negative {
     background-color: #ffc0cb;
 }
-.comment_area neutral{
+
+.neutral {
     background-color: #87cefa;
 }
 
-
 .comment_header {
-    border-bottom: 1px dotted;
+   border-bottom: 1px dotted;
+    padding-bottom: 3px;
 }
-.comment_header p{
+
+.comment_header p {
     margin-bottom: 2px;
+}
+
+.comment_body {
+    padding-bottom: 30px;
+}
+
+.plus_one {
+    padding-left: 10px;
+}
+
+.plus_one input{
+    background-color: #343434;
+    border: 1px solid #606060;
+    color: #FEFEFE;
+    font-size: 0.9em;
+    padding: 2px;
+    cursor: pointer;
+}
+.plus_one input:disabled{
+    opacity: 0.3;
+    cursor: default;
+}
+.comment_votes_counter {
+
+}
+
+.counters {
+    float: right;
+    margin-top: -30px;
+}
+
+.comment_header span{
+    font-weight: bold;
+    font-size: 12px;
 }
 
 /* Read more positioning */
@@ -328,7 +365,7 @@ p#backlinks a:hover {
     color: red;
 }
 
-.article .votes .neutral {
+.article .votes .neut {
     color: orange;
 }
 
@@ -429,7 +466,7 @@ ul.menu li a:hover {
 }
 
 #vote_buttons form.button_to div input {
-    background-color: yellow;
+    /*background-color: yellow;*/
     border: medium none;
     /*float: left;*/
     margin: 0 13px;
@@ -439,7 +476,12 @@ ul.menu li a:hover {
 }
 
 #vote_buttons form.button_to div input:disabled {
-    background-color: gray;
+    /*background-color: #cccccc;*/
+    opacity: 0.5;
+}
+
+#vote_buttons form.button_to div input:disabled:hover {
+    cursor: default;
 }
 
 /* Footer */
