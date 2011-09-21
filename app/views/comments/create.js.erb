@@ -5,5 +5,5 @@
         observe_element('ajax_paginator');
     });
 <% else %>
-    $("#system_message").html('<%= escape_javascript system_messages %>');
+    system_message('<%= escape_javascript system_messages %>');
 <% end %>

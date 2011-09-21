@@ -17,3 +17,7 @@ function observe_element(element) {
         return false;
     });
 }
+
+function system_message(msg) {
+    jQuery("#system_message").html(msg);
+}
