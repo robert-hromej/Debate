@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [[ "$1" == "start" ]]
+then
+echo "starting..."
+unicorn -c config/unicorn.rb -E production -D
+echo "started succesfuly"
+elif [[ "$1" == "stop" ]]
+then
+echo "stopping..."
+kill `cat tmp/pids/unicorn.pid`
+echo "stoped"
+elif [[ "$1" == "restart" ]]
+then
+echo "stopping..."
+kill `cat tmp/pids/unicorn.pid`
+echo "starting..."
+unicorn -c config/unicorn.rb -E production -D
+echo "started"
+else
+echo "undefined command $1"
+fi
