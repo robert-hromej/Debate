@@ -3,6 +3,11 @@ development:
     :consumer_token: Z6xprz3wtnLpgqGRZUZg4Q
     :consumer_secret: DhJtAGauikL527cOfiSSCplDOth6fNDcDLHngaaSCEo
 
+production:
+  :twitter:
+    :consumer_token: Z6xprz3wtnLpgqGRZUZg4Q
+    :consumer_secret: DhJtAGauikL527cOfiSSCplDOth6fNDcDLHngaaSCEo
+
 test:
   :twitter:
     :consumer_token: Z6xprz3wtnLpgqGRZUZg4Q
