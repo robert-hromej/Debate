@@ -161,7 +161,7 @@ h3 span {
 
 /* Paragraphs */
 p {
-    line-height: 1.9;
+    /*line-height: 1.9;*/
     margin-bottom: 14px;
 }
 
@@ -232,7 +232,7 @@ p#backlinks a:hover {
     padding: 5px 12px 27px 12px;
     margin: 8px 0 14px 0;
     position: relative;
-    _width: 619px;
+    /*width: 619px;*/
     text-align: left;
 }
 
@@ -246,6 +246,50 @@ p#backlinks a:hover {
     bottom: 7px;
     right: 10px;
     line-height: 1;
+}
+
+/*Question*/
+
+.question_area {
+    background-color: #DDDDDD;
+    border: 1px solid #AAAAAA;
+    margin: 14px 0;
+    padding: 5px 12px 10px;
+    position: relative;
+    text-align: left;
+}
+
+.question {
+
+}
+
+/*Comments*/
+#comments {
+    text-align: left;
+}
+
+.comment_area {
+    border: 1px solid;
+    margin: 10px 0;
+    padding: 5px 10px 0;
+}
+
+.comment_area positive{
+    background-color: #8fbc8f;
+}
+.comment_area negative{
+    background-color: #ffc0cb;
+}
+.comment_area neutral{
+    background-color: #87cefa;
+}
+
+
+.comment_header {
+    border-bottom: 1px dotted;
+}
+.comment_header p{
+    margin-bottom: 2px;
 }
 
 /* Read more positioning */

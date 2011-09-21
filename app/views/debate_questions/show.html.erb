@@ -4,8 +4,10 @@
 </div>
 
 
-<div class="article">
+<div class="question_area">
   <p><%= @debate_question.body %></p>
+  <p><%= @debate_question.winner %></p>
+
 
   <% if controller.authorized? %>
   <div id="vote_buttons">
@@ -14,7 +16,7 @@
   <% end %>
 </div>
 
-<p><%= t('comments') %>:</p>
+<h3><span><%= t('comments') %>:</span></h3>
 
 <div id="comments">
   <%= render 'comments/list' %>
