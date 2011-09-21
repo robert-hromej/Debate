@@ -2,16 +2,20 @@
 <div id="analytics">
   <%= render :partial => "debate_questions/analytics", :locals => {:analytics_data => @analytics_data} %>
 </div>
-<p><%= @debate_question.body %></p>
 
-<div id="vote_buttons">
-  <%= render :partial => "debate_questions/vote_buttons", :locals => {:debate => @debate_question} %>
+
+<div class="article">
+  <p><%= @debate_question.body %></p>
+
+  <div id="vote_buttons">
+    <%= render :partial => "debate_questions/vote_buttons", :locals => {:debate => @debate_question} %>
+  </div>
 </div>
 
 <p><%= t('comments') %>:</p>
 
 <div id="comments">
-    <%= render 'comments/list' %>
+  <%= render 'comments/list' %>
 </div>
 
 <h2><%= t('new_comment') %></h2>

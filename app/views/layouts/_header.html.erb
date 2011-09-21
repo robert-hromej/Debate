@@ -3,17 +3,31 @@
 
   <p id="about">Lorem ipsum dolor sit amet</p>
   <!--===========================================================================================-->
+  <% if controller.authorized? %>
+      <div id="user_section">
+        <div id="greeting">
+          <h3>
+            <%= t('welcome') %>
+            <%= link_to controller.current_user.screen_name, controller.current_user.profile_url, :class => "welcome_link" %>
+          </h3>
+        </div>
+        <!--<div id="user_ava">-->
+          <!--<img src="<%= controller.current_user.profile_image %>" alt=""/>-->
+        <!--</div>-->
+      </div>
+  <% end %>
+
   <div id="menu-box">
     <ul id="web">
       <% if controller.authorized? %>
           <li>
             <%= link_to t(:logout), logout_url, {:id => "logout"} %>
           </li>
-      <% else %>
+    <% else %>
           <li>
             <%= link_to image_tag("/images/twitter_button.gif"), login_url, :id => "twitter_login_but" %>
           </li>
-      <% end %>
+    <% end %>
 
       <li>
         <%= link_to t('all_debates'), debate_questions_path %>
@@ -21,23 +35,8 @@
       <li>
         <%= link_to t('home'), root_url %>
       </li>
-
-      <% if controller.authorized? %>
-          <li>
-            <div id="user_section">
-              <div id="user_ava">
-                <img src="<%= controller.current_user.profile_image %>" alt=""/>
-              </div>
-              <div id="greeting">
-                <h3>
-                  <%= t('welcome') %>
-                  <%= link_to controller.current_user.screen_name, controller.current_user.profile_url, :class => "welcome_link" %>
-                </h3>
-              </div>
-            </div>
-          </li>
-      <% end %>
-      <div id="system_message"> <%= system_messages %> </div>
     </ul>
+
+    <div id="system_message"> <%= system_messages %> </div>
   </div>
 </div>
