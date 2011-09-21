@@ -4,15 +4,19 @@
 </div>
 <p><%= @debate_question.body %></p>
 
+<% if controller.authorized? %>
 <div id="vote_buttons">
   <%= render :partial => "debate_questions/vote_buttons", :locals => {:debate => @debate_question} %>
 </div>
+<% end %>
 
 <p><%= t('comments') %>:</p>
 
 <div id="comments">
     <%= render 'comments/list' %>
 </div>
+
+<% if controller.authorized? %>
 
 <h2><%= t('new_comment') %></h2>
 <%= form_for (Comment.new, :url => debate_question_comments_path(@debate_question), :remote => true) do |f| %>
@@ -22,4 +26,8 @@
       <%= f.text_area :body, :size => "20x10" %>
       <%= f.submit %>
     </p>
+<% end %>
+
+<% else %>
+<h2><%= t(:login_to_comment) %></h2>
 <% end %>

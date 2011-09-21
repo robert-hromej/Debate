@@ -9,7 +9,9 @@
   <%= comment.counter %>
 </div>
 </p>
+<% if controller.authorized? %>
 <div id="comment_vote_<%= comment.id %>">
-  <%= comment_vote_button(comment) %>
+  <%= comment_vote_button(comment)  %>
 </div>
+<% end %>
 <br/>

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :is_logged?
+  before_filter :is_logged?, :except => [:index]
 
   def create
     @debate_question = DebateQuestion.find(params[:debate_question_id])

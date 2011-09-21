@@ -44,13 +44,14 @@ class ApplicationController < ActionController::Base
   def is_logged?
     if current_user.blank?
       respond_to do |format|
+        push_notice_message t(:please_login)
+
         format.html {
-          redirect_to login_url
+          redirect_to root_url
         }
         format.js {
-          push_notice_message t(:please_login)
           render :update do |page|
-            page.call "system_message", system_messages
+            page.call "system_message", escape_javascript(system_messages)
           end
         }
       end

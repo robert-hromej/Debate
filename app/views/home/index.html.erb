@@ -1,5 +1,7 @@
+<% if controller.authorized? %>
 <h2><%= t('new_debate') %></h2>
 <%= render 'debate_questions/new_debate_question' %>
+<% end %>
 
 <h2><%= t('top_debates') %></h2>
 
