@@ -535,13 +535,13 @@ ul.menu li a:hover {
     list-style-type: none;
     color: #FFF;
     padding: 16px 0 0 14px;
-    text-align: left;
+    /*text-align: left;*/
     float: left;
-    width: 430px;
+    width: 100%;
 }
 
 #footer ul li {
-    float: left;
+    /*float: left;*/
     display: inline;
     white-space: nowrap;
 }
