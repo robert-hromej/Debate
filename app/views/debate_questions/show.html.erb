@@ -4,7 +4,7 @@
 </div>
 
 
-<div class="question">
+<div class="question_area ">
   <p><%= @debate_question.body %></p>
 
   <% if controller.authorized? %>
@@ -14,14 +14,14 @@
   <% end %>
 </div>
 
-<h3><span><%= t('comments') %></span></h3>
+<h3><span><%= t('comments') %>:</span></h3>
 
 <div id="comments">
   <%= render 'comments/list' %>
 </div>
 
 <% if controller.authorized? %>
-<h2><%= t('new_comment') %></h2>
+<h3><span><%= t('new_comment') %></span></h3>
 <%= form_for (Comment.new, :url => debate_question_comments_path(@debate_question), :remote => true) do |f| %>
     <%= f.hidden_field :debate_question_id, :value => @debate_question.id %>
     <p>

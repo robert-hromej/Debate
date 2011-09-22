@@ -9,10 +9,13 @@ gem 'oauth'
 gem 'twitter'
 gem 'will_paginate'
 gem 'annotate', '2.4.0'
+gem 'jquery-rails', '>= 1.0.12'
 
 group :development, :test do
   gem "rspec", "~> 2.6.0"
   gem "rspec-rails", "~> 2.4"
+  gem "cucumber"
+  gem "webrat"
   gem "factory_girl_rails", "~> 1.1"
   gem "faker"
 end
@@ -29,4 +32,7 @@ group :test do
   #   -->This will freeze time for better testing issue
   gem "timecop"
 end
-gem 'jquery-rails', '>= 1.0.12'
+
+group :production do
+  gem 'unicorn'
+end

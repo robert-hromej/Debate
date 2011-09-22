@@ -61,6 +61,13 @@ class DebateQuestion < ActiveRecord::Base
                            :neutral_count => result[DebateVote::NEUTRAL] || 0)
   end
 
+  def winner
+    max_vote = [yes_count,no_count,neutral_count].max
+    return "positive" if yes_count==max_vote
+    return "negative" if no_count==max_vote
+    return "neutral" if neutral_count==max_vote
+  end
+
   private
 
   def analytics_vote_count(vote)

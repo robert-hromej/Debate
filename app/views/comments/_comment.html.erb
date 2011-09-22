@@ -1,19 +1,25 @@
-<div class="comment">
+<div class="comment_area">
   <div class="comment_header">
-    <p>
-      <%= comment.created_at %>
-    </p>
+    <span slass = "user_name"><%= comment.user.screen_name%></span> : <%= comment.created_at.strftime("%d %B %Y") %>
   </div>
-
-  <p>
+  <div class="comment_body">
     <%= comment.body %>
-  </p>
+  </div>
 
-  <div id="comment_votes_counter_<%= comment.id %>">
-    <%= comment.counter %>
-  </div>
-  <div id="comment_vote_<%= comment.id %>">
-    <%= comment_vote_button(comment) %>
-  </div>
-  <br/>
+  <table class="counters">
+    <tr>
+      <td>
+        <div id="comment_votes_counter_<%= comment.id %>" class="comment_votes_counter">
+          Votes: <%= comment.counter %>
+        </div>
+      </td>
+      <td>
+        <% if controller.authorized? %>
+            <div id="comment_vote_<%= comment.id %>" class="plus_one">
+              <%= comment_vote_button(comment) %>
+            </div>
+        <% end %>
+      </td>
+    </tr>
+  </table>
 </div>
