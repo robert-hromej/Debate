@@ -269,9 +269,10 @@ p#backlinks a:hover {
 }
 
 .comment_area {
+    background-color: #B0E0E6;
+    border: 1px solid DodgerBlue;
     margin: 10px 0;
     padding: 5px 10px 0;
-    background-color: #b0e0e6;
 }
 
 .positive {
@@ -287,7 +288,7 @@ p#backlinks a:hover {
 }
 
 .comment_header {
-   border-bottom: 1px dotted;
+    border-bottom: 1px dotted dodgerBlue;
     padding-bottom: 3px;
 }
 
@@ -303,7 +304,7 @@ p#backlinks a:hover {
     padding-left: 10px;
 }
 
-.plus_one input{
+.plus_one input {
     background-color: #343434;
     border: 1px solid #606060;
     color: #FEFEFE;
@@ -311,10 +312,12 @@ p#backlinks a:hover {
     padding: 2px;
     cursor: pointer;
 }
-.plus_one input:disabled{
+
+.plus_one input:disabled {
     opacity: 0.3;
     cursor: default;
 }
+
 .comment_votes_counter {
 
 }
@@ -324,9 +327,38 @@ p#backlinks a:hover {
     margin-top: -30px;
 }
 
-.comment_header span{
+.comment_header span {
     font-weight: bold;
     font-size: 12px;
+}
+
+#new_comment {
+    text-align: left;
+}
+
+#label_comment {
+    margin: 10px 0 5px;
+}
+
+#text_comment textarea {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: LightSteelBlue LightSteelBlue LightSlateGrey lightSlateGrey;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#button_comment input {
+    background-color: #343434;
+    border: 1px solid #606060;
+    color: #FEFEFE;
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 2px;
+    margin-top: 5px;
 }
 
 /* Read more positioning */
