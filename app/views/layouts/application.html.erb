@@ -17,6 +17,7 @@
   <%= javascript_include_tag('jqplot/plugins/jqplot.pieRenderer') %>
   <%= javascript_include_tag('jqplot/plugins/jqplot.enhancedLegendRenderer') %>
   <%= javascript_include_tag('jqplot/excanvas') %>
+  <%= javascript_include_tag('pop-up') %>
   <%= stylesheet_link_tag('jquery.jqplot.min.css') %>
   <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
   <%= stylesheet_link_tag "default" %>
@@ -31,6 +32,7 @@
   <div class="page">
     <%= yield %>
   </div>
+  <%= render :partial => "layouts/footer" %>
 </div>
 
 </body>

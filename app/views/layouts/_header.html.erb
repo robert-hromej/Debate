@@ -1,5 +1,5 @@
 <div class="header">
-  <h1><span><a href="">Our <span id="color">Debate</span> Project</a></span></h1>
+  <h1><span><a href="<%=root_path %>">Our <span id="color">Debate</span> Project</a></span></h1>
 
   <p id="about">Lorem ipsum dolor sit amet</p>
   <!--===========================================================================================-->
@@ -11,9 +11,6 @@
             <%= link_to controller.current_user.screen_name, controller.current_user.profile_url, :class => "welcome_link" %>
           </h3>
         </div>
-        <!--<div id="user_ava">-->
-          <!--<img src="<%= controller.current_user.profile_image %>" alt=""/>-->
-        <!--</div>-->
       </div>
   <% end %>
 

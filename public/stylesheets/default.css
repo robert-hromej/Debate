@@ -508,7 +508,7 @@ ul.menu li a:hover {
 }
 
 #vote_buttons form.button_to div input:disabled {
-    /*background-color: #cccccc;*/
+    color: #0A0A0A;
     opacity: 0.5;
 }
 
@@ -587,6 +587,65 @@ form.searching label {
     display: none;
 }
 
+/*Pop-up*/
+/* Z-index of #mask must lower than #boxes .window */
+#mask {
+    background-color: #000000;
+    display: none;
+    left: 0;
+    margin-left: -184px;
+    position: absolute;
+    top: 0;
+    z-index: 9000;
+}
 
+#boxes .window {
+    position: absolute;
+    width: 440px;
+    height: 200px;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+    /*text-align: left;*/
+}
 
+/* Customize your modal window here, you can add background image too */
+#boxes #dialog {
+    background-color: LightBlue;
+    height: 203px;
+    margin-left: -184px;
+    width: 375px;
+}
 
+.close {
+    background-image: url("/images/close.png");
+    background-repeat: no-repeat;
+    float: right;
+    height: 40px;
+    margin-right: -44px;                                         margin-top: -36px;
+    position: relative;
+    width: 40px;
+}
+
+/*Messages*/
+#system_message {
+    position: absolute;
+    top: -60px;
+    z-index: 9998;
+}
+
+.error {
+    background-color: #fa8072;
+    border: 2px solid red;
+    left: 300px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.notice {
+    background-color: #90ee90;
+    border: 2px solid green;
+    left: 300px;
+    padding: 10px;
+    border-radius: 10px;
+}

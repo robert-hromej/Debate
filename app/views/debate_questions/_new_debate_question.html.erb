@@ -1,8 +1,29 @@
-<%= form_for (DebateQuestion.new) do |form| %>
-    <p>
-        <%= form.label :body %>
-        <%= form.text_area :body, :size => "20x5" %>
-    </p>
+<a href="#dialog" name="modal" class="all_button">New Debate</a>
 
-    <%= form.submit %>
-<% end %>
+<div id="boxes">
+
+  <div id="dialog" class="window">
+    <b>Adding new question</b>
+
+    <!-- close button is defined as close class -->
+    <a href="#"><div class="close"></div></a>
+
+    <%= form_for (DebateQuestion.new) do |form| %>
+        <div id="label_comment">
+          <%= form.label "Your question:" %>
+        </div>
+        <div id="text_comment">
+          <%= form.text_area :body, :size => "51x8" %>
+        </div>
+
+        <div id="button_comment">
+          <%= form.submit %>
+        </div>
+    <% end %>
+
+  </div>
+
+
+  <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->
+  <div id="mask"></div>
+</div>

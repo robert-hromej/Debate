@@ -1,7 +1,7 @@
 <% session[:system_message][:notice].each do |msg| %>
-    <span class="notice"> <%= msg %> </span> </br>
+    <div class="notice"> <%= msg %> </div> </br>
 <% end %>
 
 <% session[:system_message][:error].each do |msg| %>
-    <span class="error"> <%= msg %> </span> </br>
+    <div class="error"> <%= msg %> </div> </br>
 <% end %>
