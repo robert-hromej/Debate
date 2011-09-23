@@ -15,6 +15,7 @@ en:
   notice:
     success:
       debate_voted: "you success voted..."
+      debate_commented: "you success commented..."
   error:
     you_already_debate_voted: "you already voted..."
   button:

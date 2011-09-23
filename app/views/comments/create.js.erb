@@ -4,6 +4,6 @@
     jQuery(function($) {
         observe_element('ajax_paginator');
     });
-<% else %>
-    system_message('<%= escape_javascript system_messages %>');
 <% end %>
+
+system_message('<%= escape_javascript system_messages %>');
