@@ -12,6 +12,7 @@ module Debate
       g.view_specs false
       g.helper_specs false
     end
+    #
     config.action_view.javascript_expansions[:defaults] = %w(analytics jquery jquery_ujs)
     config.action_view.javascript_expansions[:jqplot] = ["jqplot/jquery.jqplot.min",
                                                          "jqplot/plugins/jqplot.canvasTextRenderer.min",
