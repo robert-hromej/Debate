@@ -1,53 +1,67 @@
 require 'rubygems'
 require 'spork'
 
+if RUBY_VERSION == "1.9.2"
+  require 'simplecov'
+  SimpleCov.start 'rails' do
+    add_group "Models", "app/models"
+    add_group "Controllers", "app/controllers"
+    add_filter "/log/"
+    add_filter "/vendor"
+    add_filter "/lib/taskapp/controllerss"
+    add_filter "/config"
+  end
+end
+
+if Spork.using_spork?
+  ActiveSupport::Dependencies.clear
+  ActiveRecord::Base.instantiate_observers
+end
+
 Spork.prefork do
-  # Loading more in this block will cause your tests to run faster. However,
-  # if you change any configuration or code from libraries loaded here, you'll
-  # need to restart spork for it take effect.
+
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
 
 
-# Requires supporting files with custom matchers and macros, etc,
-# in ./support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-  # rspec
+
   RSpec.configure do |config|
-    # == Mock Framework
-    #
-    # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-    #
-    # config.mock_with :mocha
-    # config.mock_with :flexmock
-    # config.mock_with :rr                                  NoMethodError: undefined method `populate' for main:Object
     config.mock_with :rspec
-
     config.include Factory::Syntax::Methods
-
-    config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
-    # If you're not using ActiveRecord, or you'd prefer not to run each of your
-    # examples within a transaction, comments the following line or assign false
-    # instead of true.
     config.use_transactional_fixtures = true
+    #config.filter_run_excluding :slow => true
+    #config.filter_run :focus => true
 
-=begin
 
-  Here comes custom functions
-
-=end
-    def clean_db
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with :truncation
-      DatabaseCleaner.start #cleaning database
+    def test_sign_in(user)
+      controller.sign_in(user)
     end
 
+    def test_sign_out
+      controller.sign_out
+    end
+
+    def clean_db
+      DatabaseCleaner.strategy = :truncation
+      DatabaseCleaner.start #cleaning database
+      DatabaseCleaner.clean
+    end
+
+
+    def freeze_time(time = Time.new)
+      Timecop.return
+      @time = Timecop.freeze(time)
+    end
+    # reload models
+    ActiveSupport::Dependencies.clear
+    ActiveRecord::Base.instantiate_observers
   end
 end
 
 Spork.each_run do
-
+  Debate::Application.reload_routes!
+  FactoryGirl.reload
 end

@@ -4,10 +4,13 @@ class DebateVote < ActiveRecord::Base
   NEUTRAL = 0
   YES = 1
 
+
   belongs_to :user
   belongs_to :debate_question
-
+  #todo Author:Tom Why this is the unique_votes if there is association of users votes?
   scope :uniq_votes, sub_query(DebateVote.order("id desc")).group("#{table_name}.user_id, #{table_name}.debate_question_id")
+  #todo Author:Tom Better practice than @user_vote ||= debate_votes.where(:user_id => user_id).last
+  #scope :last_user_vote, lambda {|user_id| where(:user_id => user_id).limit(1).order("created_at ASC") }
 
   after_save :recounting
 
