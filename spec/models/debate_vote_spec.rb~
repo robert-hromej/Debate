@@ -1,9 +1,7 @@
 require 'spec_helper'
-
 def valid_attr
   {:debate_question_id => create(:debate_question).id,:user_id=> create(:user).id}
 end
-
 describe DebateVote do
   subject{ DebateVote.new }
   it{should respond_to(:debate_question)}

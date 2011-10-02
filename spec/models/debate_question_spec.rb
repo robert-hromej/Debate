@@ -12,6 +12,7 @@ describe DebateQuestion do
 
   describe "validations" do
     before { @user = create(:user) }
+
     it "should not pass 'about' higher than 256" do
       DebateQuestion.new(:body => ("a" * 300), :user_id => @user.id).should_not be_valid
     end
