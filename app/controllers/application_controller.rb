@@ -3,13 +3,12 @@ class ApplicationController < ActionController::Base
 
   # finds current user record in table 'users' using id stored in session
   def current_user
-    @current_user ||= User.find(session[:current_user_id]) if session[:current_user_id]
+    @current_user ||= User.find_by_id(session[:current_user_id])
   end
 
   # save user id in session
   def set_current_user(user)
-    @current_user = user
-    session[:current_user_id] = (user ? user.id : nil)
+    @current_user = user; session[:current_user_id] = user.try(:id)
   end
 
   def authorized?

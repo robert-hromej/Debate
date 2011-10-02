@@ -12,7 +12,16 @@ module Debate
       g.view_specs false
       g.helper_specs false
     end
-    config.action_view.javascript_expansions[:defaults] = %w(jquery jquery_ujs)
+    config.action_view.javascript_expansions[:defaults] = %w(analytics jquery jquery_ujs)
+    config.action_view.javascript_expansions[:jqplot] = ["jqplot/jquery.jqplot.min",
+                                                         "jqplot/plugins/jqplot.canvasTextRenderer.min",
+                                                         "jqplot/plugins/jqplot.canvasAxisLabelRenderer.min",
+                                                         "jqplot/plugins/jqplot.dateAxisRenderer",
+                                                         "jqplot/plugins/jqplot.highlighter.min",
+                                                         "jqplot/plugins/jqplot.cursor.min",
+                                                         "jqplot/plugins/jqplot.pieRenderer",
+                                                         "jqplot/plugins/jqplot.enhancedLegendRenderer",
+                                                         "jqplot/excanvas"]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
