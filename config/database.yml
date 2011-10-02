@@ -1,6 +1,6 @@
 login: &login
   username: root
-  password: 081092
+  password: "1234"
   adapter: mysql2
   encoding: utf8
   reconnect: false
