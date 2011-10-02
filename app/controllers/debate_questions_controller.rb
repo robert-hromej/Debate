@@ -15,7 +15,7 @@ class DebateQuestionsController < ApplicationController
   def create
     debate_question = current_user.debate_questions.create!(params[:debate_question])
 
-    push_error_message t(:debate_created)
+    push_notice_message t(:debate_created)
     redirect_to debate_question
 
   rescue StandardError => ex

@@ -4,7 +4,7 @@ describe Comment do
   before(:all) do
     @attr = {:user_id => 1, :debate_question_id => 1, :counter => 0, :body => "55555555", :vote => 0}
   end
-  subject { Comment.new }
+
   it { should respond_to(:user_id)}
   it { should respond_to(:user)}
   it { should respond_to(:debate_question_id) }
@@ -27,8 +27,7 @@ describe Comment do
   end
 
   it "should not be valid with long body" do
-    body = ""
-    257.times{body << "a"}
+    body = "a" * 257
     Comment.new(@attr.merge(:body => body)).should_not be_valid
   end
 
@@ -42,6 +41,19 @@ describe Comment do
 
   it "should not be valid without vote" do
     Comment.new(@attr.merge(:vote => nil)).should_not be_valid
+  end
+
+  it "should increase votes counter" do
+    comment = Factory(:comment)
+    comment.stub(:comment_votes => Array.new(20))
+    comment.recounting
+    comment.counter.should eq(20)
+  end
+
+  it "should try if user voted" do
+    comment = Factory(:comment)
+    comment.stub(:comment_votes => stub(:where => ["4"]))
+    comment.vote?(4).should eq(true)
   end
 
 end
