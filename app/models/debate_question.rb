@@ -89,11 +89,11 @@ class DebateQuestion < ActiveRecord::Base
 
       case data.current_vote.to_i
         when -1
-          data_array[:yes] << count
-        when 0
           data_array[:no] << count
-        when 1
+        when 0
           data_array[:neutral] << count
+        when 1
+          data_array[:yes] << count
       end
     end
 
