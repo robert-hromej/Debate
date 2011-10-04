@@ -14,7 +14,8 @@ en:
   neutral_votes: "Neutral votes"
   notice:
     success:
-      debate_voted: "you success voted..."
+      debate_voted: "you success debate voted..."
+      comment_voted: "you success comment voted..."
       debate_commented: "you success commented..."
   error:
     you_already_debate_voted: "you already voted..."
