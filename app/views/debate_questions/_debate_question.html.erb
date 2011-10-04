@@ -1,6 +1,21 @@
 <div id="debate">
+  <div class="article">
     <p><%= link_to debate_question.body, debate_question_path(debate_question) %></p>
-    <p> <%= t('yes_votes') %>: <%= debate_question.yes_count %></p>
-    <p> <%= t('no_votes') %>: <%= debate_question.no_count %></p>
-    <p> <%= t('neutral_votes') %>: <%= debate_question.neutral_count %></p>
+
+    <div class="votes">
+      <ul>
+        <li>
+          <p class="yes"> <%= t('yes_votes') %>: <%= debate_question.yes_count %></p>
+        </li>
+        <li>
+          <p class="neut"><%= t('neutral_votes') %>: <%= debate_question.neutral_count %></p>
+        </li>
+        <li>
+          <p class="no"><%= t('no_votes') %>: <%= debate_question.no_count %></p>
+        </li>
+      </ul>
+    </div>
+    <a class="more" href="#">View debate</a>
+    <%= link_to "View debate", debate_question_path(debate_question), :class => "more" %>
+  </div>
 </div>

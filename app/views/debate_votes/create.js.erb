@@ -1,2 +1,4 @@
 $("#vote_buttons").html('<%= escape_javascript render(:partial => "debate_questions/vote_buttons", :locals => {:debate => @debate}) %>');
 $("#analytics").html('<%= escape_javascript render(:partial => "debate_questions/analytics", :locals => {:analytics_data => @analytics_data}) %>');
+
+system_message('<%= escape_javascript system_messages %>');

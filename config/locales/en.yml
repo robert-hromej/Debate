@@ -2,6 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  please_login: "Please login"
   logout: "Log out"
   debate_not_valid: "Debate not valid"
   debate_created: "Debate succesufly created"
@@ -14,6 +15,7 @@ en:
   notice:
     success:
       debate_voted: "you success voted..."
+      debate_commented: "you success commented..."
   error:
     you_already_debate_voted: "you already voted..."
   button:
@@ -26,3 +28,4 @@ en:
   home: "Home"
   welcome: "Welcome"
   debates: "Debates"
+  login_to_comment: "To leave comments please login first"

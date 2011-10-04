@@ -2,6 +2,13 @@ require 'factory_girl'
 require 'faker'
 id_user = lambda{User.first.try(:id) || Factory(:user).id}
 #
+  def first_instance_of(instance, options = {})
+    label = options[:factory_label] || instance
+    klass = options[:class].blank? ? "#{instance.to_s.classify}.first" : "#{options[:class]}.first"
+    obj = (eval(klass) or Factory.create(label))
+    obj = obj.send(options[:method]) unless options[:method].nil?
+    obj
+  end
 FactoryGirl.define do
  factory :user do
     sequence(:oauth_secret) { |n| "oauth-login#{n}"}
@@ -22,11 +29,11 @@ FactoryGirl.define do
 
   factory :debate_question do
     sequence(:body) {Faker::Lorem.sentence(2)}
-    user_id { id_user }
+    user_id { first_instance_of :user, :method => :id }
    end
 
   factory :comment do
-    user_id { id_user }
+    user_id { first_instance_of :user, :method => :id }
     sequence(:body) {Faker::Lorem.sentence(2)}
     debate_question_id { DebateQuestion.first.try(:id) || Factory(:debate_vote).id }
   end

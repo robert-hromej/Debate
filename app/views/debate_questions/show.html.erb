@@ -2,24 +2,32 @@
 <div id="analytics">
   <%= render :partial => "debate_questions/analytics", :locals => {:analytics_data => @analytics_data} %>
 </div>
-<p><%= @debate_question.body %></p>
 
-<div id="vote_buttons">
-  <%= render :partial => "debate_questions/vote_buttons", :locals => {:debate => @debate_question} %>
+
+<div class="question_area ">
+  <p><%= @debate_question.body %></p>
+
+  <% if controller.authorized? %>
+  <div id="vote_buttons">
+    <%= render :partial => "debate_questions/vote_buttons", :locals => {:debate => @debate_question} %>
+  </div>
+  <% end %>
 </div>
 
-<p><%= t('comments') %>:</p>
+<h3><span><%= t('comments') %>:</span></h3>
 
 <div id="comments">
-    <%= render 'comments/list' %>
+  <%= render 'comments/list' %>
 </div>
 
-<h2><%= t('new_comment') %></h2>
+<% if controller.authorized? %>
+<h3><span><%= t('new_comment') %></span></h3>
 <%= form_for (Comment.new, :url => debate_question_comments_path(@debate_question), :remote => true) do |f| %>
     <%= f.hidden_field :debate_question_id, :value => @debate_question.id %>
-    <p>
-      <%= f.label :body %>
-      <%= f.text_area :body, :size => "20x10" %>
-      <%= f.submit %>
-    </p>
+    <div id="new_comment">
+      <div id="label_comment"><%= f.label "Your comment:"%></div>
+      <div id="text_comment"><%= f.text_area :body, :size => "90x3" %></div>
+      <div id="button_comment"><%= f.submit %></div>
+    </div>
+<% end %>
 <% end %>

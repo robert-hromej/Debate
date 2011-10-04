@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  self.per_page = 3
+  self.per_page = 5
 
   has_many :comment_votes
   belongs_to :user

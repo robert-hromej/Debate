@@ -1,6 +1,5 @@
 .bundle
 .idea
-db/schema.rb
 Gemfile.lock
 db/*.sqlite3
 log/*.log

@@ -4,7 +4,7 @@ describe CommentVote do
   before(:all) do
     @attr = {:user_id => 1, :comment_id => 1}
   end
-  subject { CommentVote.new }
+
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
   it { should respond_to(:comment_id) }
@@ -18,6 +18,14 @@ describe CommentVote do
     CommentVote.new(@attr.merge(:comment_id => nil)).should_not be_valid
   end
 
+  it "should should triger recounting after save" do
+    comment_vote = Factory(:comment_vote, :comment_id => Factory(:comment).id, :user_id => Factory(:user).id)
+    comment = stub
+    comment_vote.stub(:comment => comment)
+    comment.should_receive(:recounting).and_return(true)
+    comment_vote.update_attribute(:comment_id, Factory(:comment).id)
+  end
+
 end
 
 # == Schema Information
@@ -29,5 +37,6 @@ end
 #  comment_id :integer(4)      not null
 #  created_at :datetime
 #  updated_at :datetime
+#
 #
 

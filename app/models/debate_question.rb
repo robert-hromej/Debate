@@ -45,10 +45,12 @@ class DebateQuestion < ActiveRecord::Base
   end
 
   def analytics_data
+    result = analytics_vote_count
+
     analytics_data_hash = {
-        :Yes => analytics_vote_count(1),
-        :No => analytics_vote_count(-1),
-        :Neutral => analytics_vote_count(0),
+        :Yes => result[:yes],
+        :No => result[:no],
+        :Neutral => result[:neutral],
     }
 
     analytics_data_hash
@@ -61,18 +63,40 @@ class DebateQuestion < ActiveRecord::Base
                            :neutral_count => result[DebateVote::NEUTRAL] || 0)
   end
 
+  def winner
+    max_vote = [yes_count, no_count, neutral_count].max
+    case max_vote
+      when yes_count
+        "positive"
+      when no_count
+        "negative"
+      when neutral_count
+        "neutral"
+    end
+  end
+
   private
 
-  def analytics_vote_count(vote)
-    data_array = []
+  def analytics_vote_count
+    data_array = {:yes => [], :no => [], :neutral => []}
 
-    DebateVote.sub_query(uniq_votes).select("UNIX_TIMESTAMP(DATE(debate_votes.created_at))*1000 as date, count(debate_votes.current_vote) as count_by_day").
-        where(:current_vote => vote).group("DATE(debate_votes.created_at)").each do |data|
-      count_array = []
-      count_array << data.date.to_i
-      count_array << data.count_by_day.to_i
-      data_array << count_array
+    DebateVote.sub_query(uniq_votes).select(" UNIX_TIMESTAMP(DATE(debate_votes.created_at))*1000 as date,
+                                              count(debate_votes.current_vote) as count_by_day,
+                                              debate_votes.current_vote").
+        group("DATE(debate_votes.created_at), debate_votes.current_vote").each do |data|
+
+      count = [data.date.to_i, data.count_by_day.to_i]
+
+      case data.current_vote.to_i
+        when -1
+          data_array[:yes] << count
+        when 0
+          data_array[:no] << count
+        when 1
+          data_array[:neutral] << count
+      end
     end
+
     data_array
   end
 

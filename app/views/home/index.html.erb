@@ -1,15 +1,19 @@
-<h2><%= t('new_debate') %></h2>
+<% if controller.authorized? %>
+<h3><span><%= t('new_debate') %></span></h3>
 <%= render 'debate_questions/new_debate_question' %>
+<% end %>
 
-<h2><%= t('top_debates') %></h2>
+<h3><span><%= t('top_debates') %></span></h3>
 
 <div id="top_debates">
    <%= render @top_debates  %>
 </div>
+<a class="all_button" href="#">All Debates</a>
 
-<h2><%= t('recent_debates') %></h2>
+<h3><span><%= t('recent_debates') %></span></h3>
 
 <div id="recent_debates">
     <%= render @recent_debates  %>
 </div>
+<a class="all_button" href="#">All Debates</a>
 

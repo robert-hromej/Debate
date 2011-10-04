@@ -3,13 +3,12 @@ class ApplicationController < ActionController::Base
 
   # finds current user record in table 'users' using id stored in session
   def current_user
-    @current_user ||= User.find(session[:current_user_id]) if session[:current_user_id]
+    @current_user ||= User.find_by_id(session[:current_user_id])
   end
 
   # save user id in session
   def set_current_user(user)
-    @current_user = user
-    session[:current_user_id] = (user ? user.id : nil)
+    @current_user = user; session[:current_user_id] = user.try(:id)
   end
 
   def authorized?
@@ -44,13 +43,14 @@ class ApplicationController < ActionController::Base
   def is_logged?
     if current_user.blank?
       respond_to do |format|
+        push_notice_message t(:please_login)
+
         format.html {
-          redirect_to login_url
+          redirect_to root_url
         }
         format.js {
-          push_notice_message t(:please_login)
           render :update do |page|
-            page.call "system_message", system_messages
+            page.call "system_message", escape_javascript(system_messages)
           end
         }
       end
