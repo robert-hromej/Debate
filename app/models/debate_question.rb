@@ -46,12 +46,10 @@ class DebateQuestion < ActiveRecord::Base
 
   def analytics_data
     result = analytics_vote_count
-
-    analytics_data_hash = {
-        :Yes => result[:yes],
-        :No => result[:no],
-        :Neutral => result[:neutral],
-    }
+    analytics_data_hash = {}
+    [:yes, :no, :neutral].each do |vote|
+      analytics_data_hash[vote] = result[vote] unless result[vote].empty?
+    end
 
     analytics_data_hash
   end

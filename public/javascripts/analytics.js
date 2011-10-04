@@ -2,13 +2,20 @@ function Analytics(analytics_data) {
     $(function() {
         var data_name = [];
         var data_values = [];
+        var data_color = [];
+        var color_hash = {yes:'#66cc66', no:'#cc6666', neutral: '#6666cc'};
         $.each(analytics_data, function (key, value) {
-          data_name.push(key);
+          data_name.push(key)
+          data_color.push(color_hash[key]);
           data_values.push(value);
         });
         //var number_columns = Math.round(data_name.length / 13) + 1;
         $.jqplot.config.enablePlugins = true;
         //Create graphic
+        if (data_values != ""){
+          $("#analytics").slideDown(1000);
+        }
+
         var plot_for_debate_analytics = $.jqplot('placeholder_by_debate_analytics', data_values, {
             title: 'Votes',
             axes: {
@@ -28,7 +35,10 @@ function Analytics(analytics_data) {
             },
             seriesDefaults: {
                 neighborThreshold:0,
-                showMarker:false
+                showMarker:true,
+                pointLabels: {
+                  show: true
+                }
             },
             legend: {
                 renderer: $.jqplot.EnhancedLegendRenderer,
@@ -48,7 +58,8 @@ function Analytics(analytics_data) {
             },
             cursor: {
                 show:false
-            }
+            },
+            seriesColors:data_color
         });
         var overview_plot_by_debate_analytics = $.jqplot('overview_by_debate_analytics', data_values, {
             axesDefaults:{
@@ -76,6 +87,7 @@ function Analytics(analytics_data) {
                 neighborThreshold:0,
                 showMarker:false
             },
+            seriesColors:data_color,
             highlighter: {
                 show:false
             },
